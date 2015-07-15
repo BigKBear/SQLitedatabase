@@ -31,6 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper    {
     private static final String student_subject = "Subject";
     private static final String student_assesment_type = "Assesment Type";
     private static final String student_gender = "Gender";
+    private static final String student_grade = "Grade";
     private static final String student_username = "Username";
     private static final String student_password = "Password";
 
@@ -75,15 +76,16 @@ public class DatabaseHelper extends SQLiteOpenHelper    {
         onCreate(db);
     }
 
-    //new method to create data
-    public boolean insertData ( String name, String surname, String marks) {
+    //new method to create data in student table in the database
+    public boolean insertData ( String name, String surname, String grade) {
         //create the instance of the SQL lite data base
         SQLiteDatabase db = this.getWritableDatabase();
+
         //creation of a class called Content value
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, name);
-        contentValues.put(COl_3, surname);
-        contentValues.put(COL_4, marks);
+        contentValues.put(student_name, name);
+        contentValues.put(student_surname, surname);
+        contentValues.put(student_grade, grade);
 
         //If an exception occurs the insert function returns -1 and stores it in the result variable just created
         long result = db.insert(Table_Name,null,contentValues);

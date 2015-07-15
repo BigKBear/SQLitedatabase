@@ -19,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
     */
      //Creation of an instance of DatabaseHelper
     DatabaseHelper myDb;
-    EditText editName, editSurname, editMarks;
+    EditText editName, editSurname, editMark;
     Button btnAddData;
     Button btnviewAll;
 
@@ -33,7 +33,7 @@ public class MainActivity extends ActionBarActivity {
         //cast the variables created
         editName = (EditText) findViewById(R.id.editText_Name);
         editSurname = (EditText) findViewById(R.id.editText2_Surname);
-        editMarks = (EditText) findViewById(R.id.editText3_Mark);
+        editMark = (EditText) findViewById(R.id.editText3_Mark);
         btnAddData = (Button) findViewById(R.id.button_add);
         btnviewAll = (Button) findViewById(R.id.button2);
         AddData();
@@ -47,7 +47,7 @@ public class MainActivity extends ActionBarActivity {
 
                     @Override
                     public void onClick(View v) {
-                        boolean isInserted = myDb.insertData(editName.getText().toString(), editSurname.getText().toString(), editMarks.getText().toString());
+                        boolean isInserted = myDb.insertData(editName.getText().toString(), editSurname.getText().toString(), editMark.getText().toString());
 
                         if (isInserted = true)
                             Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
