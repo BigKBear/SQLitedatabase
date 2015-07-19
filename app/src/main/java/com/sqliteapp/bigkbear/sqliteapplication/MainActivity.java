@@ -35,6 +35,7 @@ public class MainActivity extends ActionBarActivity {
         editSurname = (EditText) findViewById(R.id.editText2_Surname);
         editMark = (EditText) findViewById(R.id.editText3_Mark);
         btnAddData = (Button) findViewById(R.id.button_add);
+
         btnviewAll = (Button) findViewById(R.id.button2);
         AddData();
         viewAll();
@@ -76,10 +77,10 @@ public class MainActivity extends ActionBarActivity {
                             buffer.append("ID :"+ res.getString(0)+"\n");
                             buffer.append("Name :"+ res.getString(1)+"\n");
                             buffer.append("Surname :"+ res.getString(2)+"\n");
-                            buffer.append("Marks :"+ res.getString(3)+"\n\n");
+                            buffer.append("Grade :"+ res.getString(8)+"\n\n");
                         }
                         //Show all data
-                        showMessage("Data",buffer.toString());
+                        showMessage("Data", buffer.toString());
                     }
                 }
         );

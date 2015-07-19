@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * It contains two methods onCreate and onUpgrade
  * A default constructor was then created for the Database
  * Aim is to create below Database:
- * Database name Student.db
+ * Database name profile.db
  * ID   Name        Surname     Marks
  * 1    Mark        Taylor      78
  * 2    Tom         Smith       89
@@ -20,21 +20,26 @@ import android.database.sqlite.SQLiteOpenHelper;
  * 4    Max         Nickson     90
  */
 public class DatabaseHelper extends SQLiteOpenHelper    {
-    //Declaration of Variables for student.db
-    private static final String DATABASE_NAME = "application.db";
-    private static final String Table_Name = "student_table";
-    private static final String student_id = "ID";
-    private static final String student_name = "Name";
-    private static final String student_surname = "Surname";
-    private static final String student_age = "Age";
-    private static final String student_class = "class";
-    private static final String student_subject = "Subject";
-    private static final String student_assesment_type = "Assesment Type";
-    private static final String student_gender = "Gender";
-    private static final String student_grade = "Grade";
-    private static final String student_username = "Username";
-    private static final String student_password = "Password";
 
+    //Declaration of Variables for application.db
+    private static final String DATABASE_NAME = "application.db";
+
+    //Declaration of Variables for profile_table
+    private static final String Table_Name = "profile_table";
+
+    private static final String profile_id = "ID";
+    private static final String profile_name = "Name";
+    private static final String profile_surname = "Surname";
+    private static final String profile_age = "Age";
+    private static final String profile_class = "class";
+    private static final String profile_subject = "Subject";
+    private static final String profile_assesment_type = "Assesment Type";
+    private static final String profile_gender = "Gender";
+    private static final String profile_grade = "Grade";
+    private static final String profile_username = "Username";
+    private static final String profile_password = "Password";
+
+    /*
     //Declaration of Variables for parent.db
     //private static final String DATABASE_NAME = "parent.db";
     private static final String Table_Name = "parent_table";
@@ -46,7 +51,8 @@ public class DatabaseHelper extends SQLiteOpenHelper    {
     private static final String parent_telephone_number = "Telephone Number";
     private static final String parent_cellphone_number = "Cellphone Number";
     private static final String parent_gender = "Gender";
-    
+    */
+
     private static final int DATABASE_VERSION=1;
 
     //Complecated database Constructor
@@ -65,7 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper    {
     /*this is called when the database is created for the first time. Creation of tables and initial data is placed in this function.*/
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + Table_Name + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Surname TEXT, Marks INTEGER)");//executes what ever queary you pass and creates a table
+        db.execSQL("create table " + Table_Name + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Surname TEXT, Age Interger, class TEXT, Subject TEXT, Assesment Type, Gender TEXT, Grade INTERGER, Username INTERGER)");//executes what ever queary you pass and creates a table
 
     }
 
@@ -76,16 +82,17 @@ public class DatabaseHelper extends SQLiteOpenHelper    {
         onCreate(db);
     }
 
-    //new method to create data in student table in the database
-    public boolean insertData ( String name, String surname, String grade) {
+    //new method to create data in profile table in the database
+    public boolean insertData (String name, String surname, String grade) {
         //create the instance of the SQL lite data base
         SQLiteDatabase db = this.getWritableDatabase();
 
         //creation of a class called Content value
         ContentValues contentValues = new ContentValues();
-        contentValues.put(student_name, name);
-        contentValues.put(student_surname, surname);
-        contentValues.put(student_grade, grade);
+        
+        contentValues.put(profile_name, name);
+        contentValues.put(profile_surname, surname);
+        contentValues.put(profile_grade, grade);
 
         //If an exception occurs the insert function returns -1 and stores it in the result variable just created
         long result = db.insert(Table_Name,null,contentValues);
@@ -99,7 +106,7 @@ public class DatabaseHelper extends SQLiteOpenHelper    {
         //query to get all data
         //step one create and instance of the SQL lite data base
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from" +Table_Name, null);
+        Cursor res = db.rawQuery("select * from" + Table_Name, null);
         return res;
 
     }
