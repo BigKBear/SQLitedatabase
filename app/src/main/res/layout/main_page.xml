@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Welcome,"
+        android:id="@+id/textView" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/emptyString"
+        android:id="@+id/TVusername" />
+
+    <Button
+        android:id="@+id/planner_button"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:text="Planner"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/sub_button"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:text="Substitutions"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false" />
+
+    <Button
+        android:id="@+id/timetable_button"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:text="Timetable"
+        android:layout_height="wrap_content"
+        android:onClick="onButonClick" />
+</LinearLayout>
